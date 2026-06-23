@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MERIDIAN — Элитная недвижимость</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="grain"></div>
+
+<!-- ============ ШАПКА (общая для всех слайдов) ============ -->
+<header class="site-header">
+  <div class="header-inner">
+    <div class="logo" id="logoHome">
+      <span class="logo-mark">M</span>
+      <span class="logo-word">MERIDIAN</span>
+    </div>
+    <div class="header-progress" id="headerProgress">
+      <span class="progress-dot is-active" data-step="1"></span>
+      <span class="progress-dot" data-step="2"></span>
+      <span class="progress-dot" data-step="3"></span>
+    </div>
+  </div>
+</header>
+
+<!-- ============ СЛАЙД 1: HERO + ФИЛЬТР ============ -->
+<section class="slide slide-hero is-active" id="slide1" data-slide="1">
+  <div class="hero-grid-lines" aria-hidden="true">
+    <svg width="100%" height="100%" preserveAspectRatio="none">
+      <line x1="0" y1="25%" x2="100%" y2="25%" class="grid-line"/>
+      <line x1="0" y1="50%" x2="100%" y2="50%" class="grid-line"/>
+      <line x1="0" y1="75%" x2="100%" y2="75%" class="grid-line"/>
+    </svg>
+  </div>
+
+  <div class="hero-image-col">
+    <div class="hero-image-wrap">
+      <img src="building.webp" alt="Жилой комплекс премиум-класса" class="hero-building-img">
+      <div class="hero-image-tag">
+        <span class="tag-line"></span>
+        <span class="tag-text">FACADE-01 / 18 ЭТАЖЕЙ</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-content-col">
+    <h1 class="hero-title">Координаты<br><span class="hero-title-italic">безупречной</span><br>жизни.</h1>
+    <p class="hero-sub">Отбираем объекты по строгим координатам качества: материал, свет, высота потолков, тишина двора. Три города — единый стандарт.</p>
+
+    <div class="filter-widget" id="filterWidget">
+      <div class="filter-row">
+        <span class="filter-label">Город</span>
+        <div class="city-tabs" id="cityTabs">
+          <button class="city-tab is-active" data-city="moscow" type="button">Москва</button>
+          <button class="city-tab" data-city="spb" type="button">Петербург</button>
+          <button class="city-tab" data-city="ny" type="button">Нью-Йорк</button>
+        </div>
+      </div>
+      <div class="filter-row">
+        <span class="filter-label">Сделка</span>
+        <div class="deal-toggle" id="dealToggle">
+          <button class="deal-btn is-active" data-deal="buy" type="button">Купить</button>
+          <button class="deal-btn" data-deal="rent" type="button">Арендовать</button>
+        </div>
+      </div>
+      <button class="filter-submit" id="filterSubmit" type="button">
+        <span>Показать объекты</span>
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- ============ СЛАЙД 2: КАТАЛОГ ============ -->
+<section class="slide slide-catalog" id="slide2" data-slide="2">
+  <div class="slide-inner">
+    <button class="back-btn" id="backToSlide1" type="button">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M13 8H3M3 8L7 4M3 8L7 12" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <span>Изменить параметры</span>
+    </button>
+
+    <div class="catalog-header">
+      <div class="catalog-heading">
+        <span class="section-eyebrow" id="catalogEyebrow">02 / Каталог</span>
+        <h2 class="catalog-title" id="catalogTitle">Объекты по выбранным координатам</h2>
+      </div>
+      <div class="catalog-count" id="catalogCount">— объектов</div>
+    </div>
+
+    <div class="catalog-grid" id="catalogGrid"></div>
+
+    <div class="catalog-empty" id="catalogEmpty" hidden>
+      <p>По этим координатам пока нет объектов.</p>
+      <p class="catalog-empty-sub">Попробуйте другой город или тип сделки.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ СЛАЙД 3: ДЕТАЛЬНЫЙ РАЗБОР ОБЪЕКТА ============ -->
+<section class="slide slide-detail" id="slide3" data-slide="3">
+  <div class="slide-inner">
+    <button class="back-btn" id="backToSlide2" type="button">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M13 8H3M3 8L7 4M3 8L7 12" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <span>К каталогу</span>
+    </button>
+
+    <div class="detail-grid">
+      <div class="detail-visual">
+        <div class="detail-photo" id="detailPhoto"></div>
+        <svg id="planSvg" viewBox="0 0 360 360" class="plan-svg"></svg>
+        <span class="plan-caption">Чертёж предоставляется ознакомительно</span>
+      </div>
+
+      <div class="detail-info">
+        <span class="section-eyebrow" id="detailEyebrow">Объект</span>
+        <h2 class="detail-title" id="detailTitle">—</h2>
+        <p class="detail-desc">Панорамное остекление от пола до потолка, высота потолков от 3.4 м, индивидуальный климат-контроль и приватный лифтовой холл.</p>
+
+        <div class="plan-specs" id="detailSpecs"></div>
+
+        <form class="booking-form" id="bookingForm" novalidate>
+          <input type="hidden" id="bookingPropertyId">
+
+          <div class="field" data-field="name">
+            <label for="fieldName">Имя</label>
+            <input type="text" id="fieldName" name="name" placeholder="Александр">
+            <span class="field-error">Укажите имя</span>
+          </div>
+
+          <div class="field" data-field="phone">
+            <label for="fieldPhone">Телефон</label>
+            <input type="tel" id="fieldPhone" name="phone" placeholder="+7 900 000-00-00">
+            <span class="field-error">Укажите телефон</span>
+          </div>
+
+          <div class="field" data-field="email">
+            <label for="fieldEmail">Email</label>
+            <input type="email" id="fieldEmail" name="email" placeholder="you@mail.com">
+            <span class="field-error">Укажите корректный email</span>
+          </div>
+
+          <div class="field" data-field="messenger">
+            <label>Удобный мессенджер</label>
+            <div class="messenger-toggle" id="messengerToggle">
+              <button type="button" class="msg-btn is-active" data-messenger="telegram">Telegram</button>
+              <button type="button" class="msg-btn" data-messenger="whatsapp">WhatsApp</button>
+            </div>
+          </div>
+
+          <button type="submit" class="btn-primary btn-submit">
+            <span>Отправить заявку</span>
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TOAST ============ -->
+<div class="toast" id="toast" role="status" aria-live="polite">
+  <span class="toast-dot"></span>
+  <span class="toast-text">Заявка успешно отправлена. Наш консьерж свяжется с вами в течение 5 минут.</span>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
